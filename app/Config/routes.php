@@ -6,7 +6,7 @@
  */
 return $routesArray = [
     '/' => ['controller' => 'GoodsController', 'action' => 'index'],
-    '/test/student/add' => array('controller' => 'StudentController', 'action' => 'addStudentAction'),
+    '/create' => ['controller' => 'GoodsController', 'action' => 'create'],
     '/test/student/edit/'. $uriSegment => array('controller' => 'StudentController', 'action' => 'editStudentAction'),
     '/test/student/delete/'. $uriSegment => array('controller' => 'StudentController', 'action' => 'deleteStudentAction'),
 ];
