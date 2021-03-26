@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale|split('_')[0] }}">
 <head>
-    <title>Test</title>
-    <link rel="stylesheet" href="/test/asset/styles.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Aggregator Review</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.css">
+{#    {% block stylesheets %}#}
+{#    {% endblock %}#}
 </head>
-<body>
-<a href = "/test/books">Books</a> | <a href="\test\">Students</a>
-<hr>
-{% block content %}
+<body class="admin-interface">
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary sidebar-switcher" href="#">
+            <i class="fa fa-bars"></i>
+        </a>
+        <div class="sidebar-collapse dd">
+            {#{{ knp_menu_render('sidebar', {'allow_safe_labels': true}) | raw }}#}
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg">
+        {% block title %}
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-8">
+                    <h2>ASD</h2>
+                </div>
+            </div>
+        {% endblock %}
+        <div class="wrapper-content animated">
+            <div class="row">
+                {% block header %}{% endblock %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% block javascripts %}
+{% endblock %}
+{% block customscripts %}
 {% endblock %}
 </body>
 </html>
-{#<!DOCTYPE html>#}
-{#<html>#}
-{#<head>#}
-{#    <title>My Webpage</title>#}
-{#</head>#}
-{#<body>#}
-{#<ul id="navigation">#}
-{#    {% for item in navigation %}#}
-{#        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>#}
-{#    {% endfor %}#}
-{#</ul>#}
-
-{#<h1>My Webpage</h1>#}
-{#{{ a_variable }}#}
-{#</body>#}
-{#</html>#}

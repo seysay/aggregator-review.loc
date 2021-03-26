@@ -6,17 +6,16 @@ use App\Core\AbstractController;
 use App\Model\Goods;
 use App\Form\StudentsForm;
 
+/**
+ * Class GoodsController
+ * @package App\Controller
+ */
 class GoodsController extends AbstractController
 {
     public function index()
     {
-        $student = new Goods();
-        $students = $student->getAll();
-        $data = $this->studentsModel->getStudents();
-        $this->view->show('index.html.twig', $student);
-
-
-//        require_once __DIR__ .'/../Views/index.html.twig';
+        $data = $this->goodsModel->getGoods();
+        $this->view->show('index.html.twig', $data);
     }
 
     public function create()

@@ -34,8 +34,9 @@ class Route
                 break;
             }
             if ($counter == count($routesArray)) {
-                $objects["App\Core\View"]->show('errorView.php', 'This page does not exist');
+                $objects["App\Core\View"]->show('errorView.html.twig', 'This page does not exist');
             }
         }
     }
 }
+

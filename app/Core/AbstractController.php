@@ -2,29 +2,31 @@
 
 namespace App\Core;
 
+use App\Model\Goods;
+
 /**
  * Class AbstractController. Contains __construct for controllers
  * @package App\Core
  */
 abstract class AbstractController
 {
-//    /**
-//     * @var Model. received Model object
-//     */
-//    protected $studentsModel;
+    /**
+     * @var Goods. received Model object
+     */
+    protected $goodsModel;
     /**
      * @var View. received View object
      */
     protected $view;
-//
-//    protected $booksModel;
 
     /**
      * Controller constructor. Assigns the received values to variables
+     * @param AbstractModel $goodsModel
      * @param View $view
      */
-    public function __construct(View $view)
+    public function __construct(AbstractModel $goodsModel, View $view)
     {
         $this->view = $view;
+        $this->goodsModel = $goodsModel;
     }
 }
