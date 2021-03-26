@@ -1,0 +1,48 @@
+<?php require 'header.html'; ?>
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2>Добавити товар</h2>
+        </div>
+        <div class="card-body">
+            <?php if(!empty($message)): ?>
+                <div class="alert alert-success">
+                    <?php echo $message; ?>
+                </div>
+            <?php endif; ?>
+            <form method="post">
+                <div class="form-group">
+                    <label for="name">Ім'я</label>
+                    <input type="text" name="name" id="name"  placeholder="Ваше ім'я" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Прізвище</label>
+                    <input type="text" name="surname" id="surname"  placeholder="Ваше прізвище" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="age">Вік</label>
+                    <input type="number" name="age" id="age"  placeholder="Ваш вік" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Стать</label>
+                    <select class="form-control"type="text" name="sex" id="sex" placeholder="Ваша стать" class="form-control">
+                        <option>Чоловіча</option>
+                        <option>Жіноча</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="group">Група</label>
+                    <input type="text" name="group" id="group"  placeholder="Ваша група" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="faculty">Факультет</label>
+                    <input type="text" name="faculty" id="faculty"  placeholder="Ваш факультет" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info">Добавити студента</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php require 'footer.html'; ?>
