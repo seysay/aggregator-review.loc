@@ -54,6 +54,7 @@ class GoodsController extends AbstractController
     {
         $result = $this->goodsModel->deleteGoods($uriSegment);
         if ($result == true) {
+            $this->goodsModel->deleteGoods($uriSegment);
             header('Location: /');
         } else {
             /**

@@ -53,7 +53,6 @@ class Goods extends AbstractModel
     public function deleteGoods($uriSegment)
     {
         $id = $uriSegment;
-     var_dump($id);
         $query = "DELETE FROM `goods` WHERE `id`=$id";
 
         $result = $this->db->exec($query);

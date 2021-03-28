@@ -30,7 +30,7 @@ class Route
                  * @var string Name of executing action
                  */
                 $actionName = $value['action'];
-                $objects['App\Controllers\\'.$value['controller']]->$actionName($uriSegment);
+                $objects['App\Controllers\\'. $value['controller']]->$actionName($uriSegment);
                 break;
             }
             if ($counter == count($routesArray)) {
