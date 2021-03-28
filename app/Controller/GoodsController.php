@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Core\AbstractController;
-use App\Model\Goods;
-use App\Form\StudentsForm;
 
 /**
  * Class GoodsController
@@ -48,6 +46,28 @@ class GoodsController extends AbstractController
             }
         }
         $this->view->show('goods/form.html.twig', $data);
+    }
+
+    public function edit($uriSegment)
+    {
+        if (empty($_POST)) {
+            $data = $this->goodsModel->getGoodsId($uriSegment);
+            $this->view->show('goods/edit_form.html.twig', $data);
+        } else {
+            $result = $this->goodsModel->editGoods($uriSegment);
+            if ($result == true) {
+                header('Location: /');
+            } else {
+                /**
+                 * @var array. Array of entered incorrect values
+                 */
+                $data = array_values($_POST);
+
+                $data['type'] = 'goods';
+                $data['error'] = 'Incorrect data';
+                $this->view->show('goods/edit_form.html.twig', $data);
+            }
+        }
     }
 
     public function delete($uriSegment)

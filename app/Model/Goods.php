@@ -47,6 +47,35 @@ class Goods extends AbstractModel
     }
 
     /**
+     * @param $id
+     * @return false|\PDOStatement
+     */
+    public function getGoodsId($id)
+    {
+        $query = "SELECT * FROM `goods` WHERE `id`= $id";
+
+        $result = $this->db->query($query);
+
+        return $result;
+    }
+
+    /**
+     * @param $id
+     * @return false|\PDOStatement
+     */
+    public function editGoods($id)
+    {
+        $idInt = (int)$id;
+        if (true) {
+            $validateData = $this->clear($_POST);
+            $query = "UPDATE `goods` SET `name`='$validateData[name]', `little_img`='$validateData[little_img]', `price`='$validateData[price]', `name_author_goods`='$validateData[name_author_goods]', `count_reviews`='$validateData[count_reviews]' WHERE `id`=$idInt";
+
+            $result = $this->db->query($query);
+        }
+        return $result;
+    }
+
+    /**
      * @param $uriSegment
      * @return false|\PDOStatement
      */
