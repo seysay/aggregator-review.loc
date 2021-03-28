@@ -7,17 +7,17 @@
             <h2>Aggregator Review</h2>
 {#            <a href="/" class="btn btn-outline-light active" role="button" data-bs-toggle="button" aria-pressed="true">Home</a>#}
             <a href="/create" class="btn btn-outline-primary active" role="button" data-bs-toggle="button" aria-pressed="true">Create</a>
+            <a href="/reviews" class="btn btn-outline-dark active" role="button" data-bs-toggle="button" aria-pressed="true">Reviews Table</a>
         </div>
     </div>
 <table class="table">
     <thead class="thead-dark">
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col"><a href="#" >ID</a></th>
         <th scope="col">Name</th>
         <th scope="col">Image</th>
         <th scope="col">Price</th>
         <th scope="col">NameAuthorGoods</th>
-        <th scope="col">Count Reviews</th>
         <th scope="col">ACTION</th>
     </tr>
     </thead>
@@ -31,9 +31,8 @@
         </td>
         <td>{{ info.price }}</td>
         <td>{{ info.name_author_goods }}</td>
-        <td>{{ info.count_reviews }}</td>
         <td>
-            <a href="show/{{ info.id }}" class="btn btn-outline-secondary active" role="button" data-bs-toggle="button" aria-pressed="true">Show</a>
+            <a href="reviews/{{ info.id }}" class="btn btn-outline-secondary active" role="button" data-bs-toggle="button" aria-pressed="true">Reviews</a>
             <a href="edit/{{ info.id }}" class="btn btn-outline-success active" role="button" data-bs-toggle="button" aria-pressed="true">Edit</a>
             <a href="delete/{{ info.id }}" class="btn btn-outline-danger active" role="button" data-bs-toggle="button" aria-pressed="true">Delete</a>
         </td>

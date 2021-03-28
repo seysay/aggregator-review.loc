@@ -6,12 +6,11 @@ use App\Model\Goods;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-/**This class has method that returns service
- *
- * Class StudentsServiceProvider
+/**
+ * Class GoodsServiceProvider
  * @package App\Core\Providers
  */
-class StudentsServiceProvider implements ServiceProviderInterface
+class GoodsServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {

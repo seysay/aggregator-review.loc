@@ -6,7 +6,9 @@
 return $providers = array(
     'View' => '\App\Core\Providers\ViewServiceProvider',
     'PDO' => '\App\Core\Providers\PDOServiceProvider',
-    'Students' => '\App\Core\Providers\StudentsServiceProvider',
-    'StudentController' => '\App\Core\Providers\StudentControllerServiceProvider',
+    'Goods' => '\App\Core\Providers\GoodsServiceProvider',
+    'GoodsController' => '\App\Core\Providers\GoodsControllerServiceProvider',
+    'Reviews' => '\App\Core\Providers\ReviewsServiceProvider',
+    'ReviewsController' => '\App\Core\Providers\ReviewsControllerServiceProvider',
 );
 

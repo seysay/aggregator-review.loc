@@ -6,19 +6,17 @@ use App\Controller\GoodsController;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-/**This class has method that returns service
- *
- * Class StudentControllerServiceProvider
+/**
+ * Class GoodsControllerServiceProvider
  * @package App\Core\Providers
  */
-class StudentControllerServiceProvider implements ServiceProviderInterface
+class GoodsControllerServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $pimple)
     {
         $pimple['App\Controllers\GoodsController'] = function ($c) {
-            return new GoodsController($c['App\Models\Goods'], $c['App\Core\View']);
+            return new GoodsController($c['App\Models\Goods'], $c['App\Models\Reviews'], $c['App\Core\View']);
         };
         return $pimple;
     }
 }
-

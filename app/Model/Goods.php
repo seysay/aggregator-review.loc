@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use App\Core\AbstractModel;
-use function Couchbase\defaultDecoder;
 
 /**
  * Class Goods
@@ -11,7 +10,6 @@ use function Couchbase\defaultDecoder;
  */
 class Goods extends AbstractModel
 {
-
     /**
      * @return false|\PDOStatement
      */
@@ -33,13 +31,13 @@ class Goods extends AbstractModel
      * @param $countReviews
      * @return false|int
      */
-    public function createGoods($name, $littleImg, $price, $nameAuthorGoods, $countReviews)
+    public function createGoods($name, $littleImg, $price, $nameAuthorGoods)
     {
         $result = 0;
         $created = date('Y-m-d H:i:s');
         //Rewrite if Don`t remember
         if (true) {
-            $query = "INSERT INTO `goods` (`id`, `name`, `little_img`, `price`, `created`, `name_author_goods`, `count_reviews`) VALUES (NULL, '$name', '$littleImg', '$price', '$created', '$nameAuthorGoods', '$countReviews')";
+            $query = "INSERT INTO `goods` (`id`, `name`, `little_img`, `price`, `created`, `name_author_goods`) VALUES (NULL, '$name', '$littleImg', '$price', '$created', '$nameAuthorGoods')";
             $result = $this->db->exec($query);
         }
 
@@ -68,7 +66,7 @@ class Goods extends AbstractModel
         $idInt = (int)$id;
         if (true) {
             $validateData = $this->clear($_POST);
-            $query = "UPDATE `goods` SET `name`='$validateData[name]', `little_img`='$validateData[little_img]', `price`='$validateData[price]', `name_author_goods`='$validateData[name_author_goods]', `count_reviews`='$validateData[count_reviews]' WHERE `id`=$idInt";
+            $query = "UPDATE `goods` SET `name`='$validateData[name]', `little_img`='$validateData[little_img]', `price`='$validateData[price]', `name_author_goods`='$validateData[name_author_goods]' WHERE `id`=$idInt";
 
             $result = $this->db->query($query);
         }
@@ -88,4 +86,33 @@ class Goods extends AbstractModel
 
         return $result;
     }
+
+
+    public function newReview($id)
+    {
+        $idInt = (int)$id;
+        if (true) {
+            $validateData = $this->clear($_POST);
+            $created = date('Y-m-d H:i:s');
+            $query = "INSERT INTO `reviews` (`id`, `name_author`, `rating`, `comment`, `created`, `good_id`) VALUES (NULL, '$validateData[name_author]', '$validateData[rating]', '$validateData[comment]', '$created', '$idInt')";
+//            $query = "INSERT INTO `reviews` (`id`, `name_author`, `rating`, `comment`, `created`, `good_id`) VALUES (NULL, '$validateData[name_author]', '$validateData[rating]', '$validateData[comment]', NULL, NULL)";
+//dd($query);
+            $result = $this->db->exec($query);
+        }
+        return $result;
+    }
+
+//    public function newReview($nameAuthor, $rating, $comment, $good_id)
+//    {
+////        `name`='$validateData[name]', `little_img`='$validateData[little_img]' WHERE `id`=$idInt";
+//        $idInt = (int)$good_id;
+//        if (true) {
+//            $created = date('Y-m-d H:i:s');
+//            $validateData = $this->clear($_POST);
+//            $query = "INSERT INTO `reviews` (`id`, `name_author`, `rating`, `comment`, `created`, `good_id`) VALUES (NULL, '$nameAuthor', '$rating', '$comment', '$created', '$good_id')";
+//
+//            $result = $this->db->exec($query);
+//        }
+//        return $result;
+//    }
 }

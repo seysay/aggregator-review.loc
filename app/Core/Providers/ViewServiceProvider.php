@@ -8,8 +8,8 @@ use Pimple\ServiceProviderInterface;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
-/**This class has method that returns service
- *
+/**
+ * This class has method that returns service
  * Class ViewServiceProvider
  * @package App\Core\Providers
  */
