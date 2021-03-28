@@ -2,8 +2,8 @@
 
 namespace App\Model;
 
-use App\Core;
 use App\Core\AbstractModel;
+use function Couchbase\defaultDecoder;
 
 /**
  * Class Goods
@@ -11,38 +11,16 @@ use App\Core\AbstractModel;
  */
 class Goods extends AbstractModel
 {
-    /** @var integer|null */
-    private $id;
-
-    /** @var string|null */
-    private $name;
-
-    /** @var string|null */
-    private $littleImg;
-
-    /** @var float|null */
-    private $price;
-
-    /** @var \DateTime|null */
-    private $created;
-
-    /** @var string|null */
-    private $nameAuthorGoods;
-
-    /** @var string|null */
-    private $countReviews;
 
     /**
-     * This method queries all data from the database and returns them
-     * @return PDO statement. Data about students
+     * @return false|\PDOStatement
      */
     public function getGoods()
     {
-        $query = "SELECT s.id, s.name, s.age,  GROUP_CONCAT(b.title) books FROM students s LEFT JOIN books b ON s.id =  b.student_id GROUP BY s.id";
-        /**
-         * @var. PDO statement
-         */
-        $result = $this->connect->query($query);
+        $query = "SELECT * FROM `goods`";
+
+        $result = $this->db->query($query);
+
         return $result;
     }
 
@@ -51,18 +29,35 @@ class Goods extends AbstractModel
      * @param $name
      * @param $littleImg
      * @param $price
-     * @param $created
      * @param $nameAuthorGoods
      * @param $countReviews
-     * @return PDO statement. Data about students
+     * @return false|int
      */
-    public function createGoods($name, $littleImg, $price, $created, $nameAuthorGoods, $countReviews)
+    public function createGoods($name, $littleImg, $price, $nameAuthorGoods, $countReviews)
     {
-        $query = "
-        INSERT INTO `goods` (`id`, `name`, `little_img`, `price`, `created`, `name_author_goods`, `count_reviews`) 
-        VALUES (NULL, $name, $littleImg, $price, $created, $nameAuthorGoods, $countReviews)";
-var_dump($this->connect->query($query));
-$result = $this->connect->query($query);
+        $result = 0;
+        $created = date('Y-m-d H:i:s');
+        //Rewrite if Don`t remember
+        if (true) {
+            $query = "INSERT INTO `goods` (`id`, `name`, `little_img`, `price`, `created`, `name_author_goods`, `count_reviews`) VALUES (NULL, '$name', '$littleImg', '$price', '$created', '$nameAuthorGoods', '$countReviews')";
+            $result = $this->db->exec($query);
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param $uriSegment
+     * @return false|\PDOStatement
+     */
+    public function deleteGoods($uriSegment)
+    {
+        $id = $uriSegment;
+     var_dump($id);
+        $query = "DELETE FROM `goods` WHERE `id`=$id";
+
+        $result = $this->db->exec($query);
+
         return $result;
     }
 }

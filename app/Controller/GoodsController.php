@@ -34,13 +34,11 @@ class GoodsController extends AbstractController
                 $_POST['name'],
                 $_POST['little_img'],
                 $_POST['price'],
-                $_POST['created'],
                 $_POST['name_author_goods'],
                 $_POST['count_reviews']
             );
-
             if ($result == true) {
-                header('Location: /create');
+                header('Location: /');
             } else {
                 /**
                  * @var array. Data that is sent to the error view.
@@ -48,49 +46,22 @@ class GoodsController extends AbstractController
                 $data['type'] = 'goods';
                 $data['error'] = 'Incorrect data';
             }
-            var_dump($result);
         }
         $this->view->show('goods/form.html.twig', $data);
     }
 
-//    public function create()
-//    {
-//        $form = new StudentsForm();
-//
-//        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//            if ($form->validate($_POST)) {
-//                $student = new Goods($_POST);
-//                $student->save();
-//                header("Location: /");
-//            }
-//        }
-//        require_once __DIR__ . '/../Views/create.html';
-//    }
-
-    public function edit()
+    public function delete($uriSegment)
     {
-        $form = new StudentsForm();
-
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($form->validate($_POST)){
-                $student = new Goods($_POST);
-                $student->save();
-
-                header("Location: /");
-            }
+        $result = $this->goodsModel->deleteGoods($uriSegment);
+        if ($result == true) {
+            header('Location: /');
+        } else {
+            /**
+             * @var array. Data that is sent to the error view.
+             */
+            $data['type'] = 'goods';
+            $data['error'] = 'Not found';
+            $this->view->show('errorView.html.twig', $data);
         }
-        $student = new Goods();
-        $student->load($_GET['id']);
-
-
-        require_once __DIR__ . '/../Views/edit.html';
-    }
-
-    public function delete()
-    {
-        $student = new Goods();
-        $student->load($_GET['id']);
-        $student->delete();
-        header("Location: /");
     }
 }

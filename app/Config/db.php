@@ -18,4 +18,3 @@ class DBConfig
         'database' => 'aggregator_review_loc',
         );
 }
-

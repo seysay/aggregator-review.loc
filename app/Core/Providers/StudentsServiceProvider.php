@@ -16,7 +16,7 @@ class StudentsServiceProvider implements ServiceProviderInterface
     public function register(Container $pimple)
     {
         $pimple['App\Models\Goods'] = function ($c) {
-            return new Goods($c['\PDO']);
+            return new Goods();
         };
         return $pimple;
     }

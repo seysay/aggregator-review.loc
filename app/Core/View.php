@@ -34,7 +34,7 @@ class View
      */
     public function show($content, $data = null)
     {
-        echo $this->twig->render($content, array('data' => $data));
+        echo $this->twig->render($content, ['data' => $data]);
     }
 }
 
