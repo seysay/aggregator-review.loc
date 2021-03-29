@@ -4,23 +4,18 @@
         <ul class="list-group">
             {% for info in data %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Name
+                    <b>Name</b>
                     <span class="badge badge-primary badge-pill">{{ info.name }}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Rating
+                    <b>Rating</b>
                     <span class="badge badge-primary badge-pill">{{ info.rating_avg }}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    Image
+                    <b>Image</b>
                     <img class="img-thumbnail" width="200" height="200" src="{{ info.little_img }}">
                 </li>
             {% endfor %}
         </ul>
-        </hr>
-        <div class="container">
-            <a href="/" class="btn btn-outline-primary active" role="button" data-bs-toggle="button"
-               aria-pressed="true">Home</a>
-        </div>
     </div>
 {% endblock %}
