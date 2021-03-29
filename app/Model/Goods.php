@@ -100,7 +100,10 @@ class Goods extends AbstractModel
         return $result;
     }
 
-
+    /**
+     * @param $id
+     * @return false|int
+     */
     public function newReview($id)
     {
         $idInt = (int)$id;
@@ -108,24 +111,9 @@ class Goods extends AbstractModel
             $validateData = $this->clear($_POST);
             $created = date('Y-m-d H:i:s');
             $query = "INSERT INTO `reviews` (`id`, `name_author`, `rating`, `comment`, `created`, `good_id`) VALUES (NULL, '$validateData[name_author]', '$validateData[rating]', '$validateData[comment]', '$created', '$idInt')";
-//            $query = "INSERT INTO `reviews` (`id`, `name_author`, `rating`, `comment`, `created`, `good_id`) VALUES (NULL, '$validateData[name_author]', '$validateData[rating]', '$validateData[comment]', NULL, NULL)";
-//dd($query);
+
             $result = $this->db->exec($query);
         }
         return $result;
     }
-
-//    public function newReview($nameAuthor, $rating, $comment, $good_id)
-//    {
-////        `name`='$validateData[name]', `little_img`='$validateData[little_img]' WHERE `id`=$idInt";
-//        $idInt = (int)$good_id;
-//        if (true) {
-//            $created = date('Y-m-d H:i:s');
-//            $validateData = $this->clear($_POST);
-//            $query = "INSERT INTO `reviews` (`id`, `name_author`, `rating`, `comment`, `created`, `good_id`) VALUES (NULL, '$nameAuthor', '$rating', '$comment', '$created', '$good_id')";
-//
-//            $result = $this->db->exec($query);
-//        }
-//        return $result;
-//    }
 }

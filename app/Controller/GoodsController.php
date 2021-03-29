@@ -10,12 +10,22 @@ use App\Core\AbstractController;
  */
 class GoodsController extends AbstractController
 {
+    /**
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function index()
     {
         $data = $this->goodsModel->getGoods();
         $this->view->show('index.html.twig', $data);
     }
 
+    /**
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function create()
     {
         /**
@@ -47,6 +57,12 @@ class GoodsController extends AbstractController
         $this->view->show('goods/form.html.twig', $data);
     }
 
+    /**
+     * @param $uriSegment
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function edit($uriSegment)
     {
         if (empty($_POST)) {
@@ -69,6 +85,12 @@ class GoodsController extends AbstractController
         }
     }
 
+    /**
+     * @param $uriSegment
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function delete($uriSegment)
     {
         $result = $this->goodsModel->deleteGoods($uriSegment);
@@ -85,6 +107,12 @@ class GoodsController extends AbstractController
         }
     }
 
+    /**
+     * @param $uriSegment
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function createReviews($uriSegment)
     {
         if (empty($_POST)) {

@@ -2,7 +2,6 @@
     "name": "sey/aggregator-review.loc",
     "description": "aggregator-review project",
     "require": {
-        "bramus/router": "~1.4",
         "ext-pdo": "*",
         "vlucas/phpdotenv": "^3.3",
         "twig/twig": "^3.3",

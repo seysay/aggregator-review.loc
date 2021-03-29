@@ -4,6 +4,10 @@ namespace App\Model;
 
 use App\Core\AbstractModel;
 
+/**
+ * Class Reviews
+ * @package App\Model
+ */
 class Reviews extends AbstractModel
 {
     /**

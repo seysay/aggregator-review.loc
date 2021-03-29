@@ -10,6 +10,12 @@ use App\Core\AbstractController;
  */
 class ReviewsController extends AbstractController
 {
+    /**
+     * @param $id
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function show($id)
     {
         $data = $this->reviewsModel->getReviews($id);
@@ -18,6 +24,12 @@ class ReviewsController extends AbstractController
         $this->showGoods($id);
     }
 
+    /**
+     * @param $id
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function showGoods($id)
     {
         $data = $this->goodsModel->getRating($id);
