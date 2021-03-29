@@ -6,5 +6,14 @@ use App\Core\AbstractModel;
 
 class Reviews extends AbstractModel
 {
+    /**
+     * @return false|\PDOStatement
+     */
+    public function getReviews($id)
+    {
+        $query = "SELECT r.id,name_author,rating,comment,r.created  FROM `reviews` as r WHERE r.good_id=$id;";
+        $result = $this->db->query($query);
 
+        return $result;
+    }
 }

@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block content %}
+    </hr>
+    <div class="container">
+        <p class="error">{{ data.error }}</p>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            {% for info in data %}
+                    <tbody>
+                    <td>{{ info.name_author }}</td>
+                    <td>{{ info.rating }}</td>
+                    <td>{{ info.comment }}</td>
+                    <td>{{ info.created }}</td>
+                    </tr>
+                    </tbody>
+            {% endfor %}
+        </table>
+        </hr>
+    </div>
+{% endblock %}

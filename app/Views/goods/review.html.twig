@@ -5,7 +5,6 @@
         <table class="table">
             <thead class="thead-dark">
             <tr>
-
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
@@ -19,28 +18,38 @@
                         <img class="img-thumbnail" width="200" height="200" src="{{ info.little_img }}">
                     </td>
                     <td>{{ info.name }}</td>
-
                     <td>{{ info.price }}</td>
                     <td>{{ info.name_author_goods }}</td>
                 </tr>
                 </tbody>
             {% endfor %}
         </table>
-                <form method="post">
-                    <div class="mb-3">
-                        <label>Name author</label>
-                        <input type="text" name="name_author" placeholder="Name author" required class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label>Rating</label>
-                        <input type="text" name="rating" placeholder="Rating" required class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label>Comment</label>
-                        <input type="text" name="comment" placeholder="Comment" required class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+        <form method="post">
+            <div class="mb-3">
+                <label>Name author</label>
+                <input type="text" name="name_author" placeholder="Name author" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <label>Rating</label>
+                <select class="form-select" name="rating" aria-label="Default select example">
+                    <option selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Comment</label>
+                <input type="text" name="comment" placeholder="Comment" required class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
         </hr>
         <a href="/">Return to goods list</a>
     </div>

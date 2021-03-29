@@ -6,19 +6,19 @@
             {% for info in data %}
                 <div class="mb-3">
                     <label>Name goods</label>
-                    <input value="{{ info.name }}" type="text" name="name" placeholder="Name goods" class="form-control">
+                    <input value="{{ info.name }}" type="text" name="name" placeholder="Name goods" required class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label>Image</label>
-                    <input value="{{ info.little_img }}" type="url" name="little_img" placeholder="Image url" class="form-control">
+                    <label>Image url</label>
+                    <input value="{{ info.little_img }}" type="url" name="little_img" placeholder="Image" class="form-control">
                 </div>
                 <div class="mb-3">
                     <label>Price</label>
-                    <input value="{{ info.price }}" type="text" name="price" placeholder="Price" class="form-control">
+                    <input value="{{ info.price }}" type="text" name="price" placeholder="Price" required class="form-control">
                 </div>
                 <div class="mb-3">
                     <label>Name Author Goods</label>
-                    <input value="{{ info.name_author_goods }}" type="text" name="name_author_goods" placeholder="NameAuthorGoods" class="form-control">
+                    <input value="{{ info.name_author_goods }}" type="text" name="name_author_goods" placeholder="NameAuthorGoods" required class="form-control">
                 </div>
             {% endfor %}
             <button type="submit" class="btn btn-primary">Update</button>

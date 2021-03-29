@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <h2>Reviews</h2>
+        </div>
+    </div>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name Author</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Created</th>
+        <th scope="col">Name Goods</th>
+    </tr>
+    </thead>
+    {% for info in data %}
+    <tbody>
+    <tr>
+        <th scope="row">{{ info.id }}</th>
+        <td>{{ info.name_author }}</td>
+        <td>{{ info.rating }}</td>
+        <td>{{ info.comment }}</td>
+        <td>{{ info.created }}</td>
+        <td>{{ info.name }}</td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

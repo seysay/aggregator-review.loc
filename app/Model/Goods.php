@@ -61,6 +61,19 @@ class Goods extends AbstractModel
      * @param $id
      * @return false|\PDOStatement
      */
+    public function getRating($id)
+    {
+        $query = "SELECT CEIL(AVG(r.rating))AS rating_avg, name, little_img  FROM `goods` AS g JOIN `reviews` as r ON g.id=r.good_id WHERE g.id=$id";
+
+        $result = $this->db->query($query);
+
+        return $result;
+    }
+
+    /**
+     * @param $id
+     * @return false|\PDOStatement
+     */
     public function editGoods($id)
     {
         $idInt = (int)$id;

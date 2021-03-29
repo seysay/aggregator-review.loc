@@ -9,6 +9,6 @@ return $routesArray = [
     '/create' => ['controller' => 'GoodsController', 'action' => 'create'],
     '/edit/' . $uriSegment => ['controller' => 'GoodsController', 'action' => 'edit'],
     '/delete/' . $uriSegment => ['controller' => 'GoodsController', 'action' => 'delete'],
-    '/reviews' => ['controller' => 'ReviewsController', 'action' => 'index'],
+    '/show/' . $uriSegment => ['controller' => 'ReviewsController', 'action' => 'show'],
     '/reviews/' . $uriSegment => ['controller' => 'GoodsController', 'action' => 'createReviews'],
 ];

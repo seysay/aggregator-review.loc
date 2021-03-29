@@ -12,10 +12,6 @@
 <div id="wrapper">
     <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse dd">
-            <div class="container">
-                <a href="/" class="btn btn-outline-light active" role="button" data-bs-toggle="button"
-                   aria-pressed="true">Home</a>
-            </div>
         </div>
     </nav>
     <div id="page-wrapper" class="gray-bg">
@@ -23,7 +19,12 @@
         <div class="wrapper-content animated">
             <div class="row">
                 {% block header %}{% endblock %}
-                {% block content %}{% endblock %}
+                {% block content %}
+                    <div class="container">
+                        <a href="/" class="btn btn-outline-light active" role="button" data-bs-toggle="button"
+                           aria-pressed="true">Home</a>
+                    </div>
+                {% endblock %}
             </div>
         </div>
     </div>

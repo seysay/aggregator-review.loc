@@ -105,37 +105,4 @@ class GoodsController extends AbstractController
             }
         }
     }
-
-    public function test()
-    {
-        //        /**
-//         * @var array. Data that is sent to the view
-//         */
-//        $data['type'] = 'goods';
-//        $data['error'] = null;
-//        $goodsId = $this->goodsModel->getGoodsId($uriSegment);
-//
-//        if (!empty($_POST)) {
-//            /**
-//             * @var integer. Assigned 1 if the query is successful
-//             */
-//            $result = $this->goodsModel->newReview(
-//                $_POST['name_author'],
-//                $_POST['rating'],
-//                $_POST['comment'],
-//                $_POST['good_id']
-//            );
-//            if ($result == true) {
-//                header('Location: /');
-//            } else {
-//                /**
-//                 * @var array. Data that is sent to the error view.
-//                 */
-//                $data['type'] = 'goods';
-//                $data['error'] = 'Incorrect data';
-//            }
-//        }
-//
-//        $this->view->show('goods/review.html.twig', $goodsId);
-    }
 }
